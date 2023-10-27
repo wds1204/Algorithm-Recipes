@@ -62,16 +62,16 @@ fun <T> pos(node: Node<T>) {
 
     stack1.push(head)//放入头节点
     while (stack1.isNotEmpty()) {
-        head=stack1.pop()
+        head = stack1.pop()
         stack2.push(head)
-        if (head.left!=null){
+        if (head.left != null) {
             stack1.push(head.left)
         }
-        if (head.right!=null){
+        if (head.right != null) {
             stack1.push(head.right)
         }
     }
-    while (stack2.isNotEmpty()){
+    while (stack2.isNotEmpty()) {
         print("${stack2.pop().value} ")
     }
 }

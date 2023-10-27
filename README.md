@@ -14,9 +14,6 @@
 * 先序的结果:4、5、2、6、7、3、1
 
 ```kotlin
-/**
- * 二叉树
- */
 class Node<T>(var value:T) {
     var left: Node<T>? = null
     var right: Node<T>? = null
@@ -26,6 +23,7 @@ class Node<T>(var value:T) {
 
 * 通过[递归遍历](src/main/kotlin/com/modi/wu/binarytree/RecursiveTraversalBT.kt)
 * 借助[堆栈容器](src/main/kotlin/com/modi/wu/binarytree/NoRecursiveTraversalBT.kt)
+* [纸条折痕问题](src/main/kotlin/com/modi/wu/binarytree/PaperFolding.kt)
 
 
 

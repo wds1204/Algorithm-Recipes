@@ -1,3 +1,3 @@
 
-rootProject.name = "Algorithm-Recipes"
+rootProject.name = "AlgorithmRecipes"
 
