@@ -20,10 +20,12 @@ class Node<T>(var value:T) {
 }
 ```
 如何打印二叉树：
-
 * 通过[递归遍历](src/main/kotlin/com/modi/wu/binarytree/RecursiveTraversalBT.kt)
 * 借助[堆栈容器](src/main/kotlin/com/modi/wu/binarytree/NoRecursiveTraversalBT.kt)
+  
+二叉树递归套路实践
 * [纸条折痕问题](src/main/kotlin/com/modi/wu/binarytree/PaperFolding.kt)
+* [判断是否是平衡二叉树](src/main/kotlin/com/modi/wu/binarytree/PaperFolding.kt)
 
 
 
