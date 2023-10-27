@@ -23,7 +23,7 @@ class Node<T>(var value:T) {
 * [纸条折痕问题](PaperFolding.kt)
 * [判断是否是平衡二叉树](PaperFolding.kt)
 * [二叉树最大距离](MaxDistance.kt)
-* [搜素二叉树](BinarySearchTree.kt)
+* [搜索二叉树](BinarySearchTree.kt)
 
 
 
