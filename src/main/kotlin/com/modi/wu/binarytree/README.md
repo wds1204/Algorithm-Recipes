@@ -20,6 +20,7 @@ class Node<T>(var value:T) {
 * 借助[堆栈容器](NoRecursiveTraversalBT.kt)
 
 二叉树递归套路实践
+* [满二叉树](FullBT.kt)
 * [纸条折痕问题](PaperFolding.kt)
 * [判断是否是平衡二叉树](PaperFolding.kt)
 * [二叉树最大距离](MaxDistance.kt)
