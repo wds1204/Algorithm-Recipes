@@ -46,5 +46,6 @@
 | 4 | 0 | 1 | 1 | 0 |
   ```
 * [创建图](Graph.kt)
-* [BFS](BFS.kt)
-* [DFS](DFS.kt)
+* [广度优先遍历BFS](BFS.kt)
+* [深度优先遍历DFS](DFS.kt)
+* [拓扑排序DGA](TopologySort.kt)
