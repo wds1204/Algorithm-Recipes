@@ -49,3 +49,5 @@
 * [广度优先遍历BFS](BFS.kt)
 * [深度优先遍历DFS](DFS.kt)
 * [拓扑排序DGA](TopologySort.kt)
+* [Prim算法](Prim.kt)
+* [Kruskal算法](Kruskal.kt)
