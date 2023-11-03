@@ -1,5 +1,6 @@
 package com.modi.wu.graph
 
+
 /**
  * 点的描述
  * [value]:点的value
@@ -21,6 +22,12 @@ class Node(value: Int) {
         nexts = mutableListOf()
         edges = mutableListOf()
     }
+
+    override fun toString(): String {
+        return "Node(value=$value, `in`=$`in`, out=$out, nexts=$nexts, edges=$edges)"
+    }
+
+
 }
 
 /**
@@ -54,19 +61,13 @@ fun `createGraph`(metrics: Array<Array<Int>>): Graph {
 
         val nodes = graph.nodes
 
-        if (!nodes.containsKey(from)) {
-            nodes[from] = Node(from)
-        }
-        if (!nodes.containsKey(from)) {
-            nodes[to] = Node(to)
-        }
-        val fromNode = nodes[from]!!
-        val toNode = nodes[to]!!
+        val fromNode = nodes.computeIfAbsent(from) { Node(it) }
+        val toNode = nodes.computeIfAbsent(to) { Node(it) }
 
         fromNode.out++
         toNode.`in`++
 
-        val edge=Edge(weight,fromNode,toNode)
+        val edge = Edge(weight, fromNode, toNode)
         fromNode.edges.add(edge)
         val edges = graph.edges
         edges.add(edge)
@@ -77,3 +78,13 @@ fun `createGraph`(metrics: Array<Array<Int>>): Graph {
 }
 
 
+fun main() {
+
+    val graph = Graph()
+
+    val node = graph.nodes.computeIfAbsent(1) {
+        Node(1)
+    }
+    println("node--${node}")
+
+}
