@@ -51,3 +51,4 @@
 * [拓扑排序DGA](TopologySort.kt)
 * [Prim算法](Prim.kt)
 * [Kruskal算法](Kruskal.kt)
+* [Dijkstra算法](Dijkstra.kt)
