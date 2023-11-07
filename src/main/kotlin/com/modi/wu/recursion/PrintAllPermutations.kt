@@ -8,3 +8,22 @@ package com.modi.wu.recursion
  *
  *
  */
+
+
+fun printPermutations(s: String, index: Int = 0) {
+    if (index == s.length - 1) {
+        println(s)
+        return
+    }
+    for (i in index until s.length){
+        val charArray=s.toCharArray()
+        charArray[index]=s[i].also {
+            charArray[i]=s[index]
+        }
+        printPermutations(String(charArray),index+1)
+    }
+}
+
+fun main() {
+    printPermutations("abc")
+}
