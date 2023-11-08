@@ -10,3 +10,4 @@
 * [并查集](src/main/kotlin/com/modi/wu/unionfind/README.md)
 * [图](src/main/kotlin/com/modi/wu/graph/README.md)
 * [暴力递归](src/main/kotlin/com/modi/wu/recursion/README.md)
+* [动态规划](src/main/kotlin/com/modi/wu/dynamic/README.md)
