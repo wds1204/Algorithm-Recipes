@@ -57,17 +57,13 @@ fun getMaxCardLine1(cards: IntArray): Int {
         }
     }
     for (i in 0 until n) {
-        fDp[i][i] = cards[i]
+        fDp[i][i] = cards[i]//初始化值
     }
-    val sDp = Array(n) {
-        Array(n) {
-            0
-        }
-    }
+    val sDp = Array(n) { Array(n) { 0 } }
 
     for (j in 1 until n) {
-        var i=j-1
-        while(i>=0){
+        var i = j - 1
+        while (i >= 0) {
             fDp[i][j] = max(cards[i] + sDp[i + 1][j], cards[j] + sDp[i][j - 1])
             sDp[i][j] = min(fDp[i + 1][j], fDp[i][j - 1])
             i--
