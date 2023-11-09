@@ -59,9 +59,12 @@ fun process1(weights: IntArray, values: IntArray, index: Int, reset: Int): Int {
     if (index == weights.size) return 0
 
     val p1=process1(weights, values, index+1, reset)
-    val p2=process1(weights, values, index+1, reset-weights[index])
-
-    return 0
+    var p2Next=process1(weights, values, index+1, reset-weights[index])
+    var p2 = -1
+    if (p2Next != -1) {
+        p2 = values[index] + p2Next
+    }
+    return max(p1, p2)
 }
 
 fun main() {
