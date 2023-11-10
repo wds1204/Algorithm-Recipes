@@ -74,6 +74,15 @@ fun coinsWayCache(
  *  动态规划方法，
  *  通过分析递归的过程：
  *
+ *  [50, 10, 20, 5]
+ *    0         50         100
+ *    —— —— —— —— —— —— —— ——
+ *  0｜
+ *  1｜
+ *  2｜
+ *  3｜111111..........1111111
+ *  4｜111111..........1111111
+ *
  */
 fun coinsWayDynamic(
     arr: IntArray, aim: Int,
@@ -96,6 +105,35 @@ fun coinsWayDynamic(
     return dp[0][aim]
 }
 
+/************************************************************************************/
+/**
+ *  加强版的动态规划方法，
+ *  [coinsWayDynamic]这个方法中while有枚举的过程
+ *  通过分析dp表分析：
+ *
+ *  等式1：dp[index][rest]=dp[index+1][rest]]+dp[index+1][rest-1*arr[index+1]]+dp[index+1][rest-2*arr[index+1]]+...dp[index+1][rest-n*arr[index+1]]
+ *  等式2：dp[index][rest-arr[index]]=dp[index+1][rest-1*arr[index+1]]+dp[index+1][rest-2*arr[index+1]]+dp[index+1][rest-3*arr[index+1]]+...dp[index+1][rest-n*arr[index+1]]
+
+ *  等式1和等式2推导出： dp[index][rest]= dp[index+1][rest]+dp[index][rest-arr[rest-arr[index]]]
+ */
+fun coinsWayDynamicPlus(
+    arr: IntArray, aim: Int,
+    dp: Array<IntArray> = Array(arr.size + 1) { IntArray(aim + 1) { 0 } }
+): Int {
+    //初始化值
+    val n = arr.size
+    dp[n][0] = 1
+    for (index in n - 1 downTo 0) {
+        for (rest in 0..aim) {
+            dp[index][rest] = dp[index + 1][rest]
+            if (rest - arr[index] >= 0) {
+                dp[index][rest] += dp[index][rest - arr[index]]
+            }
+        }
+    }
+    return dp[0][aim]
+}
+
 
 fun main() {
     val array = intArrayOf(50, 10, 20, 5)
@@ -103,5 +141,26 @@ fun main() {
     println("记忆化搜索计算结果：${coinsWayCache(array, 100)}")
     println("动态规划计算结果：${coinsWayDynamic(array, 100)}")
 
+    val dp: Array<IntArray> = Array(array.size + 1) { IntArray(100 + 1) { 0 } }
 
+
+
+    println("动态规划计Plus算结果：${coinsWayDynamicPlus(array, 100,dp=dp)}")
+
+
+    for (i in dp.indices) {
+
+        for (j in dp[i].indices) {
+            print("[${dp[i][j].up()} ]")
+        }
+        println()
+    }
+
+
+}
+fun Int.up():String{
+    if (this<10){
+      return  "0"+1
+    }
+    return this.toString()
 }
