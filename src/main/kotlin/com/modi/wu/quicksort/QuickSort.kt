@@ -4,63 +4,57 @@ import com.modi.wu.testHelper.swap
 
 fun main() {
 
-    var array1 = intArrayOf(12, 3, 4, 9, 6, 7, 1, 0, 5, 6)
+    val array1 = intArrayOf(12, 3, 4, 9, 6, 7, 1, 0, 5, 6)
     array1.quickSort()
     println(array1.toList())
     array1.quickSort()
     println(array1.toList())
 
-//    var array = intArrayOf(12, 3, 4, 9, 6,7, 1, 0, 5, 6)
-//    array.partitionArray(6)
-//    println("array--${array1.toList()}")
-//    array1.quickSort()
-//    println("排序后：${array1.toList()}")
-
-
 }
 
-fun IntArray.quickSort() {
-    if (this.size < 2) return
-    process(0, this.size - 1)
-}
-
-fun IntArray.process(left: Int, right: Int) {
+/**
+ * 快排的思路，从数组取某位个数进行划分，比该值小放左边，等于放中间，大于放右边
+ * 核心点就是partition的过程，设置小于区的右边界和大于区的左边界
+ * 1:当考察的元素小于基准元素时，当前元素与小于区右边界的值交换，右边界+1，考察元素位置+1
+ * 2:当考察的元素等于基准元素时，考察元素位置+1
+ * 3:当考察的元素大于基准元素时，当前元素与大于区左边界的值交换，左边界-1，考察元素位置+1
+ * 4:直到考察元素位置<=右边界位置
+ *
+ * 然后在划分好的左边和右边重复该过程
+ */
+fun IntArray.quickSort( left: Int = 0, right: Int = this.size - 1) {
     if (left >= right) return
-
-    val (l, r) = partition(left, right)
-
-    process(left, l)
-    process(r, right)
-
+    val (l, r) = quickPartition( left, right)
+    this.quickSort( left, l)
+    this.quickSort( r, right)
 }
 
-fun IntArray.partition(left: Int, right: Int): Pair<Int, Int> {
-    val pivot = this[right]//选择基准元素
+fun IntArray.quickPartition( left: Int, right: Int): Pair<Int, Int> {
+    val p = this[right]//选择基准元素
     /*定义小于基准元素区域的右边界和大于基准元素区域的左边界*/
-    var low = left-1
-    var high = right+1
-
+    var low = left
+    var hight = right
     //定义当前考察元素的指针
     var index = left
 
-    while (index < high) {
+    while (index <= hight) {
         when {
-            this[index] < pivot -> {
-                swap(index, ++low)
-                index++
+            this[index] < p -> {
+                this.swap(index++, low++)
             }
-            this[index] == pivot -> {
+            this[index] == p -> {
                 index++
             }
             else -> {
-                swap(index, --high)
+                this.swap(index, hight--)
             }
         }
-    }
-    return (low to high ).apply {
-    }
 
+    }
+    return low - 1 to hight
 }
+
+
 
 /**
  * 荷兰国旗问题：
