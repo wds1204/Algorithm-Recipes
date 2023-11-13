@@ -95,6 +95,13 @@ fun IntArray.swap(i: Int, j: Int) {
 
 }
 
+fun <T>Array<T>.swap(i: Int, j: Int) {
+    val temp = get(i)
+    set(i, get(j))
+    set(j, temp)
+
+}
+
 fun IntArray.println(isPrint:Boolean=true): String {
     var value = StringBuffer()
     this.forEach {
