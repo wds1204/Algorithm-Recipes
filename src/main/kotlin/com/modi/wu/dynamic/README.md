@@ -28,3 +28,4 @@
 
 *[机器人走路问题](RobotWalk.kt)
 *[数组中选面值问题](C.kt)
+*[中国象棋](ChineseChess.kt)
