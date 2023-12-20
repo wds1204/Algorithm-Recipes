@@ -1,6 +1,8 @@
 package com.modi.wu.pratice.class1
 
+import java.util.Arrays
 import kotlin.math.max
+
 
 /**
  * 在一个有序数组中，在固定长度范围内能覆盖最多数字个数
@@ -13,7 +15,7 @@ import kotlin.math.max
  *  这是一个典型的滑动窗口算法
  *
  */
-fun maxPoint(array: IntArray, length: Int): Int {
+fun maxPoint(array: IntArray, L: Int): Int {
     var max = 0
 
     var left = 0
@@ -21,7 +23,7 @@ fun maxPoint(array: IntArray, length: Int): Int {
     val N = array.size
 
     while (left < N) {
-        while (right < N && array[right] - array[length] <= length) {
+        while (right < N && array[right] - array[left] <= L) {
             right++
         }
 
@@ -32,6 +34,26 @@ fun maxPoint(array: IntArray, length: Int): Int {
     return max
 }
 
+// for test
+fun generateArray(len: Int, max: Int): IntArray {
+    val ans = IntArray(len)
+    for (i in ans.indices) {
+        ans[i] = (Math.random() * max).toInt()
+    }
+    Arrays.sort(ans)
+    return ans
+}
+
 fun main() {
+    val array = generateArray(20, 100)
+
+    println(array.toList())
+
+    val max = maxPoint(array, 7)
+    println(max)
+
+    intArrayOf(1, 2, 6, 7, 8, 9, 12, 17).run {
+        println(maxPoint(this, 7))
+    }
 
 }
