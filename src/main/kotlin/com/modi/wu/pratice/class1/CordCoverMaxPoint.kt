@@ -7,7 +7,7 @@ import kotlin.math.max
 /**
  * 在一个有序数组中，在固定长度范围内能覆盖最多数字个数
  *
- * 例如:[1,2,6,7,8t,9,12,17] 长度:6
+ * 例如:[1,2,6,7,8,9,12,17] 长度:6
  *  index=0位置求能选中的最大范围，右边界限right不断++，当[right]-[index]>6,求出范围值max=right-left
  *  index=1位置求能选中的最大范围，右边界限right不断++，当[right]-[index]>6,max=right-left,与上次比较保留最大的
  *  ....
