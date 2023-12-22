@@ -13,3 +13,4 @@
 * [暴力递归](src/main/kotlin/com/modi/wu/recursion/README.md)
 * [动态规划](src/main/kotlin/com/modi/wu/dynamic/README.md)
 * [滑动窗口](src/main/kotlin/com/modi/wu/slidewindow/README.md)
+* [算法训练](src/main/kotlin/com/modi/wu/pratice/README.md)
