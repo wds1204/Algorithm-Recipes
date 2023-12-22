@@ -4,6 +4,7 @@ import kotlin.math.min
 
 fun main() {
     println(minPaint("GGGGGR"))
+    println(minPaint("RGRGGGR"))
 }
 
 /**
