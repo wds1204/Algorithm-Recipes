@@ -82,12 +82,28 @@ fun <T> Node<T>.isPalindrome(): Boolean {
     var res=true
     while (pre!=null&&node2!=null){
         if (pre.value!=node2.value){
-            res=false
+            res = false
             break
         }
-        pre=pre.next
-        node2=node2.next
+        pre = pre.next
+        node2 = node2.next
     }
 
     return res
+}
+
+
+fun isPalindrome(str: String): Boolean {
+    var left: Int = 0
+    var right: Int = str.length - 1
+
+    while (left < right) {
+        if (str[left] != str[right]) {
+            return false
+        }
+        left++
+        right--
+
+    }
+    return true
 }
